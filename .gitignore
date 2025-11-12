@@ -1,0 +1,10 @@
+node_modules/
+client/node_modules/
+server/node_modules/
+fuzzy_engine/__pycache__/
+*.pyc
+.env
+.vscode/
+dist/
+build/
+.DS_Store
