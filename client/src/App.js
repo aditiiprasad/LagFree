@@ -5,7 +5,8 @@ import Dashboard from './components/Dashboard';
 import './App.css'; 
 
 
-const API_URL = 'http://localhost:8000/api/network-status';
+
+const API_URL = 'https://lagfree-server.onrender.com/api/network-status';
 
 function App() {
   const [networkData, setNetworkData] = useState([]);
