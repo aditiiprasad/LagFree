@@ -8,7 +8,8 @@ const PORT = 8000;
 app.use(cors());
 app.use(express.json());
 
-const FUZZY_ENGINE_API = 'http://127.0.0.1:5000/get-bitrate';
+const FUZZY_ENGINE_API = 'https://lagfree-fuzzy.onrender.com/get-bitrate';
+
 
 const simulateNetworkConditions = () => {
   const bandwidth = Math.random() * 9 + 1;
