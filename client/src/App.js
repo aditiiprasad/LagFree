@@ -4,9 +4,8 @@ import VideoPlayer from './components/VideoPlayer';
 import Dashboard from './components/Dashboard';
 import './App.css';
 
-
 const API_URL = 'https://lagfree-server.onrender.com/api/network-status';
-// const API_URL = 'http://localhost:8000/api/network-status'; 
+// const API_URL = 'http://localhost:8000/api/network-status';
 
 function App() {
   const [isSimulated, setIsSimulated] = useState(true);
@@ -17,27 +16,17 @@ function App() {
 
   const getBufferHealth = useCallback(() => {
     const video = videoRef.current;
-   
     if (!video || video.readyState < 2) return 0; 
-
     const currentTime = video.currentTime;
     let bufferEnd = 0;
-
-   
     for (let i = 0; i < video.buffered.length; i++) {
       if (video.buffered.start(i) <= currentTime && currentTime < video.buffered.end(i)) {
         bufferEnd = video.buffered.end(i);
         break;
       }
     }
-
-  
     const bufferHealthInSeconds = bufferEnd - currentTime;
-
-   
     const safeBufferHealth = Math.max(0, bufferHealthInSeconds);
-   
-    
     return parseFloat(safeBufferHealth.toFixed(2));
   }, [videoRef]);
 
@@ -45,23 +34,16 @@ function App() {
     const postDataAndGetDecision = async () => {
       try {
         let bandwidth, buffer, delay;
-
         if (isSimulated) {
-          
-          bandwidth = Math.random() * 9 + 1; // 1-10 Mbps
-          buffer = Math.random() * 10;      // 0-10s
-          delay = Math.random() * 290 + 10; // 10-300ms
+          bandwidth = Math.random() * 9 + 1;
+          buffer = Math.random() * 10;
+          delay = Math.random() * 290 + 10;
         } else {
-          
           bandwidth = navigator.connection ? navigator.connection.downlink : 1.0;
           buffer = getBufferHealth();
           delay = navigator.connection ? navigator.connection.rtt : 50;
-
-          
           console.log("REAL DATA:", { bandwidth, buffer, delay });
         }
-
-        
         const newDataPoint = {
           time: new Date().toLocaleTimeString(),
           bandwidth: parseFloat(bandwidth.toFixed(2)),
@@ -70,7 +52,6 @@ function App() {
         };
         setNetworkData(prevData => [...prevData.slice(-20), newDataPoint]);
 
-      
         const response = await axios.post(API_URL, {
           bandwidth,
           buffer,
@@ -82,16 +63,18 @@ function App() {
         if (fuzzyBitrateDecision) {
           setCurrentBitrate(fuzzyBitrateDecision);
         }
-
       } catch (error) {
-        console.error("Error posting network data:", error);
+        console.error("Error posting network data:", error.message);
       }
     };
 
     postDataAndGetDecision();
     const intervalId = setInterval(postDataAndGetDecision, 3000);
     return () => clearInterval(intervalId);
-  }, [isSimulated, getBufferHealth, API_URL]);
+
+   
+  }, [isSimulated, getBufferHealth]); 
+
 
   return (
     <div className="App" style={{ padding: '20px', maxWidth: '900px', margin: 'auto' }}>
@@ -130,3 +113,6 @@ function App() {
 }
 
 export default App;
+
+   
+  
