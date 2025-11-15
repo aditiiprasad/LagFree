@@ -108,6 +108,7 @@ function App() {
         />
         <Dashboard data={networkData} />
       </main>
+      
     </div>
   );
 }
