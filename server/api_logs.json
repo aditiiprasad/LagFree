@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2025-11-15T16:02:56.422Z",
+    "inputs": {
+      "bandwidth": 5,
+      "buffer": 7,
+      "delay": 120
+    },
+    "output": {
+      "bitrate": 665.78,
+      "source": "fuzzy_engine"
+    }
+  }
+]
