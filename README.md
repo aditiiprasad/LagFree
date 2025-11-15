@@ -6,7 +6,7 @@ This system is designed to minimize rebuffering events and maximize the user's Q
 
 https://lagfree.vercel.app/
 
-![LagFree Dashboard Screenshot](../LagFree/data/demo.png)
+![LagFree Dashboard Screenshot](data/demo.png)
 
 
 ---
