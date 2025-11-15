@@ -1,22 +1,26 @@
 import React from 'react';
+import Card from './ui/Card'; 
 
 const Slider = ({ label, min, max, step, value, onChange, unit, isEnabled }) => (
   <div className="flex flex-col">
     <label htmlFor={label} className="flex justify-between text-sm font-medium text-gray-300">
       <span>{label}</span>
-      <span className="font-bold text-cyan-400">{value} {unit}</span>
+      <span className="font-bold text-neon-green">{value} {unit}</span>
     </label>
     <input
       id={label}
       type="range"
-      name={label.toLowerCase()} 
+      name={label.toLowerCase()}
       min={min}
       max={max}
       step={step}
       value={value}
       onChange={onChange}
       disabled={!isEnabled}
-      className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+      
+      className="w-full h-2 rounded-lg appearance-none cursor-pointer accent-neon-green
+                 disabled:opacity-50 disabled:cursor-not-allowed
+                 bg-gray-700"
     />
   </div>
 );
@@ -31,8 +35,9 @@ const SimulationControls = ({ manualInputs, setManualInputs, isEnabled }) => {
   };
 
   return (
-    <div className={`p-4 bg-gray-800 rounded-lg shadow-md ${!isEnabled ? 'opacity-60' : ''}`}>
-      <h3 className="text-lg font-semibold text-white mb-3">Manual Simulation Controls</h3>
+   
+    <Card className={`w-full ${!isEnabled ? 'opacity-60 grayscale' : ''}`}>
+      <h3 className="text-lg font-semibold text-white mb-3">Manual Simulation</h3>
       <div className="space-y-4">
         <Slider
           label="Bandwidth"
@@ -59,12 +64,7 @@ const SimulationControls = ({ manualInputs, setManualInputs, isEnabled }) => {
           isEnabled={isEnabled}
         />
       </div>
-      {!isEnabled && (
-        <div className="text-xs text-center text-gray-400 mt-3 italic">
-          Enable "Manual Sim" mode to use these controls.
-        </div>
-      )}
-    </div>
+    </Card>
   );
 };
 

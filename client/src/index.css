@@ -1,3 +1,52 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-gray-300 font-mono;
+  }
+}
+
+
+.glass-card {
+  @apply bg-dark-card/50 backdrop-blur-sm border border-neon-green/30 rounded-lg shadow-lg;
+  
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  @apply border-neon-green/80 shadow-glow-green-sm;
+}
+
+
+.btn-neon {
+  @apply px-4 py-2 border border-neon-green/50 rounded-md text-neon-green font-bold;
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.btn-neon:hover {
+  @apply bg-neon-green text-black shadow-glow-green;
+}
+
+
+.btn-neon-active {
+  @apply bg-neon-green text-black shadow-glow-green;
+}
+
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
