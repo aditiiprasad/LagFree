@@ -1,6 +1,6 @@
-# 🚀 LagFree StreamLink: Fuzzy ABR Optimizer
+# 🚀 LagFree : Fuzzy ABR Optimizer
 
-LagFree StreamLink is a full-stack web application that demonstrates an intelligent Adaptive Bitrate (ABR) algorithm for video streaming. Instead of a traditional ABR, this project uses a **Fuzzy Logic Engine** to make real-time decisions on video quality, balancing playback smoothness and high resolution.
+LagFree is a full-stack web application that demonstrates an intelligent Adaptive Bitrate (ABR) algorithm for video streaming. Instead of a traditional ABR, this project uses a **Fuzzy Logic Engine** to make real-time decisions on video quality, balancing playback smoothness and high resolution.
 
 This system is designed to minimize rebuffering events and maximize the user's Quality of Experience (QoE) by intelligently adapting to unstable network conditions.
 

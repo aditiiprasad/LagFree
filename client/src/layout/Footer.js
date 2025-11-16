@@ -32,7 +32,7 @@ const Footer = () => {
          
           <div className="md:col-span-1">
             <h3 className="text-2xl font-bold text-neon-green mb-4">
-              LagFree StreamLink
+              LagFree 
             </h3>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
               A full-stack web app demonstrating an intelligent Adaptive Bitrate (ABR) algorithm using a Fuzzy Logic Engine to maximize QoE and minimize rebuffering.
